@@ -4,6 +4,6 @@
   "articles": [
     { "id": "1", "title": "Pizza", "price": "10" , "img": "https://i.postimg.cc/15w9F2Ff/Chicken-Teriyaki-12-1.png"},
     { "id": "2", "title": "Burger", "price": "4" , "img": "https://i.postimg.cc/15w9F2Ff/Chicken-Teriyaki-12-1.png"},
-    { "id": "3", "title": "Coffee", "price": "8" , "img": "https://i.postimg.cc/15w9F2Ff/Chicken-Teriyaki-12-1.png"},
+    { "id": "3", "title": "Coffee", "price": "8" , "img": "https://i.postimg.cc/15w9F2Ff/Chicken-Teriyaki-12-1.png"}
   ]
 }
