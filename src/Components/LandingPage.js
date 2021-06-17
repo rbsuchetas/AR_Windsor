@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Button } from "react-native";
 import { Platform, StyleSheet, View } from "react-native";
-import { Card, Text, Tile } from "react-native-elements";
-// import FastfoodOutlinedIcon from '@material-ui/icons/FastfoodOutlined';
-// import DeckOutlinedIcon from '@material-ui/icons/DeckOutlined';
+import { Card, Text, Tile  } from "react-native-elements";
+import FastfoodOutlinedIcon from '@material-ui/icons/FastfoodOutlined';
+import DeckOutlinedIcon from '@material-ui/icons/DeckOutlined';
 
 
 export default function LandingPage({ navigation }) {
@@ -11,6 +11,7 @@ export default function LandingPage({ navigation }) {
     <View style={styles.container}>
       <View style={styles.headingCard}>
         <Tile
+          icon={DeckOutlinedIcon}
           imageSrc={require('../../assets/PastelGradientPreview.jpg')}
           title="AR Windsor"
           titleNumberOfLines='2'
@@ -35,7 +36,7 @@ export default function LandingPage({ navigation }) {
             // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
             // style={{ alignSelf: 'center' }}
-            onPress={() => navigation.navigate('Profile', { title: "Restaurants" })}
+            onPress={() => navigation.navigate('Profile', { clicked: "Restaurants" })}
           />
         </View>
         <View style={styles.tileCard}>
@@ -50,7 +51,7 @@ export default function LandingPage({ navigation }) {
             // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
             // style={{ alignSelf: 'center' }}
-            onPress={() => navigation.navigate('Profile', { title: "Tourism" })}
+            onPress={() => navigation.navigate('Profile', { clicked: "Tourism" })}
           />
         </View>
         <View style={styles.tileCard}>
@@ -65,7 +66,7 @@ export default function LandingPage({ navigation }) {
             // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
             // style={{ alignSelf: 'center' }}
-            onPress={() => navigation.navigate('Profile', { title: "Events" })}
+            onPress={() => navigation.navigate('Profile', { clicked: "Events" })}
           />
         </View>
         <View style={styles.tileCard}>
@@ -80,7 +81,7 @@ export default function LandingPage({ navigation }) {
             // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
             // style={{ alignSelf: 'center' }}
-            onPress={() => navigation.navigate('AR', { title: "Ar-test" })}
+            onPress={() => navigation.navigate('Profile', { name: 'Jane' })}
           />
         </View>
       </View>
