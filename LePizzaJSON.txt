@@ -1,0 +1,9 @@
+{
+  "title": "Le Pizza",
+  "description": "Fetch remote data from Le Pizza",
+  "articles": [
+    { "id": "1", "title": "Pizza", "price": "10" },
+    { "id": "2", "title": "Burger", "price": "4" },
+    { "id": "3", "title": "Coffee", "price": "8" }
+  ]
+}
