@@ -145,9 +145,41 @@ export default function MenuTest({ route, navigation }) {
                     </View>
                 ) }
                />
+               
                 )
               }
-              
+
+              else {
+                return (
+                  <View>
+<Text>Menu to be updated!!!</Text>
+</View>
+
+              //      <FlatList
+              //        data={[
+              //            {key: 'item1',Name: 'Butter Tarts', price: '15', img:'https://i.pinimg.com/564x/c8/ed/33/c8ed33b70db70e3792bac2ebbf89ba47.jpg'},
+              //            {key: 'item2',Name: 'Montreal-style Bagels', price: '8', img:'https://www.kosher.com/resized/details.slide/h/e/Hecht__Hanoch_Montreal_Bagels_crop.jpg'},
+              //            {key: 'item3',Name: 'Nanaimo Bars', price: '6',img:'http://2.bp.blogspot.com/-IHSIA_3ftrY/Tc64LYOOxjI/AAAAAAAAAZc/tOTe5Xyzffg/s1600/nanaimo+bars+crowded.jpg'},
+              //          ]}
+              //       renderItem={({item}) => (
+              //       <View>
+              //          <Text>{item.Name}</Text>
+              //           <Text>${item.price}</Text>
+              //           <Image source={{ uri: item.img }} style={styles.ImageIconStyle} />
+              //            <br/>
+              //       <View
+              //       style={{
+              //        borderBottomColor: 'black',
+              //        borderBottomWidth: 1,
+              //       }}
+              //     />
+              //       </View>
+              //   ) }
+              //  />
+               
+                )
+              }
+            
               return null;
             })()}
         </View>
