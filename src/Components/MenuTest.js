@@ -162,9 +162,7 @@ export default function MenuTest({ route, navigation }) {
 
              }while(resIdNone++)
               
-            
-
-              return null;
+          
             })()}
         </View>
     )
