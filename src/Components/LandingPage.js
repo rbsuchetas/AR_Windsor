@@ -94,7 +94,24 @@ export default function LandingPage({ navigation }) {
       });
   }, []);
 
-  
+  useEffect(() => {
+    db.collection('foodItems').get()
+      .then(response => {
+        const fetchedfoods = [];
+        response.docs.forEach(document => {
+          const fetchedfood = {
+            id: document.id,
+            ...document.data()
+          };
+          fetchedfoods.push(fetchedfood);
+        });
+        setFoodList(fetchedfoods);
+        console.log(fetchedfoods);
+      })
+      .catch(error => {
+        setError(error);
+      });
+  }, []);
 
 
   return (

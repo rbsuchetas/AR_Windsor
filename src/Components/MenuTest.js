@@ -25,7 +25,7 @@ export default function MenuTest({ route, navigation }) {
  return (   
         <View style={styles.container}>
             {(() => {
-             if (resId == '100'){
+             if (resId % 1 === 0){
                   return (
                       <FlatList
                     data={foData}
@@ -41,7 +41,10 @@ export default function MenuTest({ route, navigation }) {
                                       </View>
                             )
                     }
-                    })()} 
+
+                    })()}
+                    
+                     
                          
                     
                     </View>
@@ -50,117 +53,14 @@ export default function MenuTest({ route, navigation }) {
                   )
               }
 
-    
-              else if (resId == '101'){
-                  return (
-                      <FlatList
-                    data={foData}
-                    renderItem={({item}) => (
-                    <View>
-                     {(() => {
-                         if (item.fid == resId){
-                         return (
-                                    <View>  
-                                        <Text> {item.fname} </Text>
-                                        <Text> ${item.fprice} </Text>
-                                         <Image source={{ uri: item.fimg }} style={styles.ImageIconStyle} />
-                                      </View>
-                            )
-                    }
-                    })()} 
-                        
-                    
-                    </View>
-                ) }
-               />
+
+              else{
+                  return(
+                      <View>
+                          <Text> Menu to be updated. Please stay tuned to this page. </Text>
+                          </View>
                   )
               }
-             
-              else if (resId == '102'){
-                  return (
-                      <FlatList
-                    data={foData}
-                    renderItem={({item}) => (
-                    <View>
-                     {(() => {
-                         if (item.fid == resId){
-                         return (
-                                    <View>  
-                                        <Text> {item.fname} </Text>
-                                        <Text> ${item.fprice} </Text>
-                                         <Image source={{ uri: item.fimg }} style={styles.ImageIconStyle} />
-                                      </View>
-                            )
-                    }
-                    })()} 
-                        
-                    
-                    </View>
-                ) }
-               />
-                  )
-              }
-
-               else if (resId == '103'){
-                  return (
-                      <FlatList
-                    data={foData}
-                    renderItem={({item}) => (
-                    <View>
-                     {(() => {
-                         if (item.fid == resId){
-                         return (
-                                    <View>  
-                                        <Text> {item.fname} </Text>
-                                        <Text> ${item.fprice} </Text>
-                                         <Image source={{ uri: item.fimg }} style={styles.ImageIconStyle} />
-                                      </View>
-                            )
-                    }
-                    })()} 
-                        
-                    
-                    </View>
-                ) }
-               />
-                  )
-              }
-
-               else if (resId == '104'){
-                  return (
-                      <FlatList
-                    data={foData}
-                    renderItem={({item}) => (
-                    <View>
-                     {(() => {
-                         if (item.fid == resId){
-                         return (
-                                    <View>  
-                                        <Text> {item.fname} </Text>
-                                        <Text> ${item.fprice} </Text>
-                                         <Image source={{ uri: item.fimg }} style={styles.ImageIconStyle} />
-                                      </View>
-                            )
-                    }
-                    })()} 
-                        
-                    
-                    </View>
-                ) }
-               />
-                  )
-              }
-
-              const resIdNone = resId;
-
-             do{
-                return(
-                  <View>
-                      <Text> Menu to be updated. Please stay tuned to this page.</Text>
-                    </View>
-                )
-
-             }while(resIdNone++)
               
           
             })()}
