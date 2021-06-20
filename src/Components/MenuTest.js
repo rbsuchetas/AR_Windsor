@@ -34,11 +34,21 @@ export default function MenuTest({ route, navigation }) {
                      {(() => {
                          if (item.fid == resId){
                          return (
+                             <TouchableOpacity>
                                     <View>  
                                         <Text> {item.fname} </Text>
                                         <Text> ${item.fprice} </Text>
                                          <Image source={{ uri: item.fimg }} style={styles.ImageIconStyle} />
+                                         
                                       </View>
+                                      <View
+  style={{
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+  }}
+/>
+                                  </TouchableOpacity>    
+                                      
                             )
                     }
 
