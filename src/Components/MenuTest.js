@@ -34,7 +34,7 @@ export default function MenuTest({ route, navigation }) {
                      {(() => {
                          if (item.fid == resId){
                          return (
-                             <TouchableOpacity>
+                             <TouchableOpacity onPress={() => navigation.navigate('ArModels', { clicked: item.fname })}>
                                     <View>  
                                         <Text> {item.fname} </Text>
                                         <Text> ${item.fprice} </Text>
