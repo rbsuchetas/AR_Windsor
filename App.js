@@ -5,7 +5,7 @@ import RestaurantPage from './src/Components/RestaurantPage';
 import MenuTest from './src/Components/MenuTest.js';
 import EventsPage from './src/Components/EventsPage.js';
 import TourismPage from './src/Components/TourismPage.js';
-import ArModelPage from './src/components/ArModel.js'
+import ArModelPage from './src/Components/ArModel.js'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
