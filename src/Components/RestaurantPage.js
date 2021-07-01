@@ -21,11 +21,18 @@ export default function RestaurantPage({ route, navigation }) {
             <View style={styles.row}>
               <View style={styles.content}>
                 <View style={styles.header}>
-                  <Text style={styles.nameText}>{item.name}</Text>
+                   <View style={styles.imageHeader}>
+                     <Image source={{ uri: item.imgUrl }} style={styles.ImageIconStyle} />
+                   </View>
+                   
+                   <View style={styles.contentInfo}>
+                     <Text style={styles.nameText}>{item.name}</Text>
+                     <Text style={styles.contentText}>{item.loc}</Text>
+                    <Text style={styles.contentText}>{item.active}</Text>
+                   </View>
+                   
                 </View>
-                <Text style={styles.contentText}>{item.loc}</Text>
-               <Image source={{ uri: item.imgUrl }} style={styles.ImageIconStyle} />
-                <Text style={styles.contentText}>{item.active}</Text>
+                
               </View>
             </View>
             <View
@@ -62,18 +69,24 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingVertical: 5,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 10,
+    marginBottom: 10,
   },
   content: {
-    flexShrink: 1
+    flexShrink: 1,
+    justifyContent:'space-between'
   },
   header: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent:'space-between',
+    flex: 6
   },
   nameText: {
-    fontWeight: '600',
+    fontWeight: '800',
     fontSize: 18,
-    color: '#000'
+    color: '#000',
+    alignItems: 'right'
   },
   dateText: {},
   contentText: {
@@ -87,10 +100,16 @@ const styles = StyleSheet.create({
   ImageIconStyle: {
    padding: 20,
    margin: 0,
-   height: 80,
-   width: 80,
+   height: 120,
+   width: 120,
    resizeMode : 'stretch',
+   alignContent:'flex-start',
+   marginLeft: 10
 },
+contentInfo: {
+  alignContent: 'flex-end',
+  marginLeft: 20
+}
 });
 
 
