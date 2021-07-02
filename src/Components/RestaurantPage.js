@@ -54,9 +54,6 @@ export default function RestaurantPage({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // paddingTop: 30,
     backgroundColor: "#F5FCFF",
   },
   title: {
@@ -87,8 +84,6 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     fontSize: 20,
     color: '#000',
-    // alignItems: 'flex-end',
-    // flex: 1,
     flexWrap: 'wrap',
     marginBottom: 4,
   },
