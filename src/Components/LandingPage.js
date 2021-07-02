@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import { Button } from "react-native";
 import { Platform, StyleSheet, View } from "react-native";
-import { Card, Text, Tile  } from "react-native-elements";
+import { Card, Text, Tile } from "react-native-elements";
 import FastfoodOutlinedIcon from '@material-ui/icons/FastfoodOutlined';
 import DeckOutlinedIcon from '@material-ui/icons/DeckOutlined';
 import { firebase } from '@firebase/app';
@@ -9,16 +9,16 @@ import "firebase/firestore"
 import 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBOWLsoEsHMG6F5U_-FRkO7cpz2ZSTit5Y",
-    authDomain: "arwindsor-d70c2.firebaseapp.com",
-    projectId: "arwindsor-d70c2",
-    storageBucket: "arwindsor-d70c2.appspot.com",
-    messagingSenderId: "680918066684",
-    appId: "1:680918066684:web:9a5a415e258ae6d739be79",
-    measurementId: "G-6FBR66S2LN"
-  };
+  apiKey: "AIzaSyBOWLsoEsHMG6F5U_-FRkO7cpz2ZSTit5Y",
+  authDomain: "arwindsor-d70c2.firebaseapp.com",
+  projectId: "arwindsor-d70c2",
+  storageBucket: "arwindsor-d70c2.appspot.com",
+  messagingSenderId: "680918066684",
+  appId: "1:680918066684:web:9a5a415e258ae6d739be79",
+  measurementId: "G-6FBR66S2LN"
+};
 
-  
+
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
@@ -26,18 +26,18 @@ const db = firebase.firestore();
 
 export default function LandingPage({ navigation }) {
 
-   const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
   const [restList, setRestList] = useState([]);
   const [eventsList, setEventsList] = useState([]);
   const [tourismList, setTourismList] = useState([]);
   const [foodList, setFoodList] = useState([]);
-  
+
   const [error, setError] = useState();
 
 
-   useEffect(() => {
+  useEffect(() => {
     db.collection('restaurantsList').get()
       .then(response => {
         const fetchedRestaurants = [];
@@ -119,26 +119,28 @@ export default function LandingPage({ navigation }) {
       <View style={styles.headingCard}>
         <Tile
           icon={DeckOutlinedIcon}
-          imageSrc={require('../../assets/PastelGradientPreview.jpg')}
-          title="AR Windsor"
+          imageSrc={require('../../assets/arwindsorLogo.png')}
+          imageContainerStyle={{ borderRadius: 10 }}
+          //title="AR Windsor"
           titleNumberOfLines='2'
           titleStyle={{ marginBottom: 0, fontSize: 48, color: 'black', fontWeight: '600' }}
           featured
           height={300}
           width='100%'
-          caption="Food | Travel | Advertisements | Events"
-          captionStyle={{ color: 'black' }}
+        //caption="Food | Travel | Advertisements | Events"
+        //captionStyle={{ color: 'black' }}
         />
       </View>
       <View style={styles.bodyCard}>
         <View style={styles.tileCard}>
           <Tile
-            imageSrc={require('../../assets/PastelGradientPreview.jpg')}
+            imageSrc={require('../../assets/restaurant.jpg')}
+            imageContainerStyle={{ borderRadius: 10 }}
             title="Restaurants"
             // titleNumberOfLines='2'
-            titleStyle={{ marginBottom: 0, fontSize: 12, color: 'black', fontWeight: '600' }}
+            titleStyle={{ marginBottom: 0, fontSize: 12, color: 'black', fontWeight: '600', height: 0 }}
             featured
-            height={100}
+            height={160}
             width='100%'
             // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
@@ -148,12 +150,13 @@ export default function LandingPage({ navigation }) {
         </View>
         <View style={styles.tileCard}>
           <Tile
-            imageSrc={require('../../assets/PastelGradientPreview.jpg')}
+            imageSrc={require('../../assets/event.jpg')}
+            imageContainerStyle={{ borderRadius: 10 }}
             title="Events"
             // titleNumberOfLines='2'
             titleStyle={{ marginBottom: 0, fontSize: 12, color: 'black', fontWeight: '600' }}
             featured
-            height={100}
+            height={160}
             width='100%'
             // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
@@ -163,12 +166,13 @@ export default function LandingPage({ navigation }) {
         </View>
         <View style={styles.tileCard}>
           <Tile
-            imageSrc={require('../../assets/PastelGradientPreview.jpg')}
+            imageSrc={require('../../assets/tourism.jpg')}
+            imageContainerStyle={{ borderRadius: 10 }}
             title="Tourism"
             // titleNumberOfLines='2'
             titleStyle={{ marginBottom: 0, fontSize: 12, color: 'black', fontWeight: '600' }}
             featured
-            height={100}
+            height={160}
             width='100%'
             // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
@@ -179,16 +183,18 @@ export default function LandingPage({ navigation }) {
         <View style={styles.tileCard}>
           <Tile
             imageSrc={require('../../assets/PastelGradientPreview.jpg')}
+            imageContainerStyle={{ borderRadius: 10 }}
             title="TBD"
             // titleNumberOfLines='2'
             titleStyle={{ marginBottom: 0, fontSize: 12, color: 'black', fontWeight: '600' }}
             featured
-            height={100}
+            height={160}
             width='100%'
             // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
             // style={{ alignSelf: 'center' }}
             onPress={() => navigation.navigate('Pro', { name: 'Jane' })}
+
           />
         </View>
       </View>
@@ -210,6 +216,7 @@ const styles = StyleSheet.create({
     flex: 1,
     // backgroundColor: 'blue',
     justifyContent: 'center',
+    borderRadius: 50,
   },
   bodyCard: {
     flex: 1,
@@ -218,8 +225,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   tileCard: {
-    width: 125,
-    marginBottom: 30,
+    width: 150,
+    marginBottom: 10,
     // alignItems: 'center',
     // alignContent: 'center',
     // justifyContent: 'flex-start',
