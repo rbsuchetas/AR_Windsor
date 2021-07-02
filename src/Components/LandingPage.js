@@ -138,7 +138,7 @@ export default function LandingPage({ navigation }) {
             imageContainerStyle={{ borderRadius: 10 }}
             title="Restaurants"
             // titleNumberOfLines='2'
-            titleStyle={{ marginBottom: 0, fontSize: 12, color: 'black', fontWeight: '600', height: 0 }}
+            titleStyle={{ marginBottom: 0, fontSize: 12, color: 'black', fontWeight: '600' }}
             featured
             height={160}
             width='100%'

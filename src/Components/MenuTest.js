@@ -45,13 +45,16 @@ export default function MenuTest({ route, navigation }) {
                   {(() => {
                     if (item.fid == resId) {
                       return (
+                        item.fmodel ? 
                         <TouchableOpacity
                           onPress={() =>
+                            
                             navigation.navigate("ArModels", {
                               clicked: item.fname,
                               arModel: item.fmodel,
                             })
                           }
+                          
                         >
                           <View>
                             <Image
@@ -74,6 +77,29 @@ export default function MenuTest({ route, navigation }) {
                           />
                           <View style={styles.SeparatorLine} />
                         </TouchableOpacity>
+                        :
+                        <>
+                        <View>
+                            <Image
+                              source={{ uri: item.fimg }}
+                              style={styles.ImageIconStyle}
+                            />
+                            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginTop: 4}}>
+                              <Text style={styles.TextStyle}> {item.fname} </Text>
+                              <Text style={styles.priceTextStyle}>
+                                {" "}
+                                ${item.fprice}{" "}
+                              </Text>
+                            </View>
+                          </View>
+                          <View
+                            style={{
+                              borderBottomColor: "black",
+                              borderBottomWidth: 1,
+                            }}
+                          />
+                          <View style={styles.SeparatorLine} />
+                          </>
                       );
                     }
                   })()}
