@@ -9,6 +9,7 @@ import ArModelPage from './src/Components/ArModel.js'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import TestAr from './src/Components/TestAr.js';
 
 const Stack = createStackNavigator();
 
@@ -20,13 +21,14 @@ export default class App extends Component {
         <Stack.Screen
           name="Home"
           component={LandingPage}
-          options={{ title: 'Welcome' }}
+          options={{ title: 'Welcome', headerTitleAlign: 'center' }}
         />
         <Stack.Screen name="Restaurant" component={RestaurantPage} />
          <Stack.Screen name="menu" component={MenuTest} />
          <Stack.Screen name="Event" component={EventsPage} />
          <Stack.Screen name="Tourism" component={TourismPage} />
          <Stack.Screen name="ArModels" component={ArModelPage} />
+         <Stack.Screen name="testAr" component={TestAr} />
       </Stack.Navigator>
     </NavigationContainer>
     );

@@ -49,6 +49,7 @@ export default function MenuTest({ route, navigation }) {
                           onPress={() =>
                             navigation.navigate("ArModels", {
                               clicked: item.fname,
+                              arModel: item.fmodel,
                             })
                           }
                         >
@@ -57,11 +58,13 @@ export default function MenuTest({ route, navigation }) {
                               source={{ uri: item.fimg }}
                               style={styles.ImageIconStyle}
                             />
-                            <Text style={styles.TextStyle}> {item.fname} </Text>
-                            <Text style={styles.TextStyle}>
-                              {" "}
-                              ${item.fprice}{" "}
-                            </Text>
+                            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginTop: 4}}>
+                              <Text style={styles.TextStyle}> {item.fname} </Text>
+                              <Text style={styles.priceTextStyle}>
+                                {" "}
+                                ${item.fprice}{" "}
+                              </Text>
+                            </View>
                           </View>
                           <View
                             style={{
@@ -102,14 +105,15 @@ const styles = StyleSheet.create({
     height: 44,
   },
   SeparatorLine: {
-    width: 10,
-    marginTop: 30,
+    width: '100%',
+    // marginTop: 8,
+    marginBottom: 4,
   },
   ImageIconStyle: {
     padding: 20,
     margin: 0,
     height: 170,
-    width: 350,
+    width: '100%',
     resizeMode: "stretch",
     // borderTopRightRadius: 20,
     // borderBottomRightRadius: 20,
@@ -123,15 +127,24 @@ const styles = StyleSheet.create({
   TextStyle: {
     //color: "#949494",
     // fontSize: 16,
-    fontWeight: "600",
-    fontSize: 18,
+    fontWeight: "700",
+    fontSize: 24,
     color: "#000",
-    marginTop: 2,
-    //color: "black",
+    // marginTop: 2,
+    marginBottom: 16,
+    marginLeft: 2,
+    // color: "black",
     // marginBottom: 10,
     // marginRight: 0,
     // alignSelf: "flex-end",
     // fontSize: 20,
     // paddingRight: 30,
   },
+  priceTextStyle:{
+    fontWeight: "600",
+    fontSize: 18,
+    color: "green",
+    marginTop: 4,
+    marginRight: 4,
+  }
 });

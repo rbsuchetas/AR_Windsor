@@ -26,9 +26,10 @@ export default function RestaurantPage({ route, navigation }) {
                    </View>
                    
                    <View style={styles.contentInfo}>
-                     <Text style={styles.nameText}>{item.name}</Text>
+                      <Text style={styles.nameText}>{item.name}</Text>
+                     
                      <Text style={styles.contentText}>{item.loc}</Text>
-                    <Text style={styles.contentText}>{item.active}</Text>
+                    <Text style={styles.contentText}>{`Cuisine: ${item.cuisine}`}</Text>
                    </View>
                    
                 </View>
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
-    paddingTop: 30,
+    // paddingTop: 30,
     backgroundColor: "#F5FCFF",
   },
   title: {
@@ -84,18 +85,22 @@ const styles = StyleSheet.create({
   },
   nameText: {
     fontWeight: '800',
-    fontSize: 18,
+    fontSize: 20,
     color: '#000',
-    alignItems: 'right'
+    // alignItems: 'flex-end',
+    // flex: 1,
+    flexWrap: 'wrap',
+    marginBottom: 4,
   },
   dateText: {},
   contentText: {
     color: '#949494',
     fontSize: 16,
-    marginTop: 2
+    marginTop: 2,
+    marginBottom: 4,
   },
   SeparatorLine :{
-  width: 10
+    width: '100%',
 },
   ImageIconStyle: {
    padding: 20,

@@ -193,7 +193,7 @@ export default function LandingPage({ navigation }) {
             // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
             // style={{ alignSelf: 'center' }}
-            onPress={() => navigation.navigate('Pro', { name: 'Jane' })}
+            onPress={() => {}}
 
           />
         </View>
@@ -206,15 +206,11 @@ export default function LandingPage({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // paddingTop: 30,
     paddingHorizontal: 30,
     backgroundColor: "#F5FCFF",
   },
   headingCard: {
     flex: 1,
-    // backgroundColor: 'blue',
     justifyContent: 'center',
     borderRadius: 50,
   },
