@@ -16,13 +16,13 @@ export default function TourismPage({ route, navigation }) {
         data={tourData}
         keyExtractor={item => item._id}
         renderItem={({ item }) => (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('TourismDestination', { clicked: item.tname, desc: item.tdesc, img: item.timg, model: item.tmodel, url: item.turl })}>
             <View style={styles.row}>
               <View style={styles.content}>
                 <View style={styles.header}>
                   <Text style={styles.nameText}>{item.tname}</Text>
                 </View>
-                <Text style={styles.contentText}>{item.tdesc}</Text>
+                <Text style={styles.contentText}>{item.taddr}</Text>
                <Image source={{ uri: item.timg }} style={styles.ImageIconStyle} />
               </View>
             </View>
@@ -88,6 +88,6 @@ const styles = StyleSheet.create({
    height: 80,
    width: 80,
    resizeMode : 'stretch',
-},
+}
 });
 
