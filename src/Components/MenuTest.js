@@ -1,5 +1,6 @@
 import { ListItem } from "@material-ui/core";
 import React, { Component, useState, useEffect } from "react";
+//import AdSense from 'react-adsense';
 import {
   Platform,
   StyleSheet,
@@ -12,6 +13,8 @@ import {
   Image,
   ActivityIndicator,
   Linking,
+  Button,
+  ImageBackground,
 } from "react-native";
 import { Tile } from "react-native-elements";
 import Separator from "./Separator";
@@ -46,7 +49,7 @@ export default function MenuTest({ route, navigation }) {
                     if (item.fid == resId) {
                       return (
                         item.fmodel ? 
-                        <TouchableOpacity
+                        <TouchableOpacity 
                           onPress={() =>
                             
                             navigation.navigate("ArModels", {
@@ -54,13 +57,16 @@ export default function MenuTest({ route, navigation }) {
                               arModel: item.fmodel,
                             })
                           }
-                          
                         >
                           <View>
-                            <Image
+                            <ImageBackground
                               source={{ uri: item.fimg }}
-                              style={styles.ImageIconStyle}
-                            />
+                              style={styles.ImageIconStyle}>
+                                <View style={styles.TagTriangleStyle}/>
+                                <View style={styles.TagRectangleStyle}>
+                                  <Text style={styles.TagTextStyle}>Tap for 3D View</Text>
+                                </View>
+                            </ImageBackground>
                             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginTop: 4}}>
                               <Text style={styles.TextStyle}> {item.fname} </Text>
                               <Text style={styles.priceTextStyle}>
@@ -80,7 +86,7 @@ export default function MenuTest({ route, navigation }) {
                         :
                         <>
                         <View>
-                            <Image
+                            <ImageBackground
                               source={{ uri: item.fimg }}
                               style={styles.ImageIconStyle}
                             />
@@ -100,7 +106,7 @@ export default function MenuTest({ route, navigation }) {
                           />
                           <View style={styles.SeparatorLine} />
                           </>
-                      );
+                     );
                     }
                   })()}
                 </View>
@@ -172,5 +178,38 @@ const styles = StyleSheet.create({
     color: "green",
     marginTop: 4,
     marginRight: 4,
+  },
+  TagTriangleStyle:{
+      top:7,
+      left:5,
+      position:'absolute',
+      width: 0,
+      height: 0,
+      backgroundColor: 'transparent',
+      borderStyle: 'solid',
+      borderRightWidth: 18,
+      borderTopWidth: 18,
+      borderRightColor: 'transparent',
+      borderTopColor: 'green',
+      transform: [{rotate: '-45deg'}],                                
+  },
+  TagRectangleStyle:{
+    top:3,
+    left:13,
+    position:'absolute',
+    width: 100,
+    padding: 0,
+    paddingLeft: 0,
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+    backgroundColor: 'green',
+    height: 25,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+  },
+  TagTextStyle:{
+    color: 'white', 
+    fontWeight: 'normal'
   }
+
 });
