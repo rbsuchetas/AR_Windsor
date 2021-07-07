@@ -10,6 +10,7 @@ import ArModelPage from './src/Components/ArModel.js'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import TestAr from './src/Components/TestAr.js';
+import TourismDescPage from './src/Components/TourismDescPage'
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,7 @@ export default class App extends Component {
          <Stack.Screen name="Tourism" component={TourismPage} />
          <Stack.Screen name="ArModels" component={ArModelPage} />
          <Stack.Screen name="testAr" component={TestAr} />
+         <Stack.Screen name="TourismDestination" component={TourismDescPage} />
       </Stack.Navigator>
     </NavigationContainer>
     );
