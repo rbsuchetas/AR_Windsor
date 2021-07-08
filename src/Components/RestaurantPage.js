@@ -86,9 +86,7 @@ export default function RestaurantPage({ route, navigation }) {
                       <Text style={styles.nameText}>{item.name}</Text>
 
                       <Text style={styles.contentText}>{item.loc}</Text>
-                      <Text
-                        style={styles.contentText}
-                      >{`Cuisine: ${item.cuisine}`}</Text>
+                      <Text style={styles.contentText}>{item.cuisine}</Text>
                     </View>
                   </View>
                 </View>
