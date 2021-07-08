@@ -1,9 +1,6 @@
-import React, { Component, useState, useEffect } from "react";
-import { Button } from "react-native";
-import { Platform, StyleSheet, View } from "react-native";
-import { Card, Text, Tile } from "react-native-elements";
-import FastfoodOutlinedIcon from '@material-ui/icons/FastfoodOutlined';
-import DeckOutlinedIcon from '@material-ui/icons/DeckOutlined';
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, Image } from "react-native";
+import { Tile } from "react-native-elements";
 import { firebase } from '@firebase/app';
 import "firebase/firestore"
 import 'firebase/firestore';
@@ -117,83 +114,63 @@ export default function LandingPage({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.headingCard}>
-        <Tile
-          icon={DeckOutlinedIcon}
-          imageSrc={require('../../assets/arwindsorLogo.png')}
-          imageContainerStyle={{ borderRadius: 10 }}
-          //title="AR Windsor"
-          titleNumberOfLines='2'
-          titleStyle={{ marginBottom: 0, fontSize: 48, color: 'black', fontWeight: '600' }}
-          featured
-          height={300}
-          width='100%'
-        //caption="Food | Travel | Advertisements | Events"
-        //captionStyle={{ color: 'black' }}
+        <Image 
+          source={require('../../assets/arwindsorLogo.png')} 
+          style={styles.ImageIconStyle} 
         />
       </View>
       <View style={styles.bodyCard}>
-        <View style={styles.tileCard}>
+        <View style={[styles.tileCard, {marginLeft : 16}]}>
           <Tile
             imageSrc={require('../../assets/restaurant.jpg')}
             imageContainerStyle={{ borderRadius: 10 }}
             title="Restaurants"
-            // titleNumberOfLines='2'
-            titleStyle={{ marginBottom: 0, fontSize: 12, color: 'black', fontWeight: '600' }}
+            titleStyle={{ marginBottom: 0, fontSize: 16, color: 'black', fontWeight: '600' }}
             featured
-            height={160}
+            height={150}
             width='100%'
-            // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
-            // style={{ alignSelf: 'center' }}
-            onPress={() => navigation.navigate('Restaurant', { clicked: "Restaurants", restData: restList, foodData: foodList })}
+            onPress={() => navigation.navigate('Restaurant', { title: "Restaurants", restData: restList, foodData: foodList })}
           />
         </View>
-        <View style={styles.tileCard}>
+        <View style={[styles.tileCard, {marginRight : 16}]}>
           <Tile
             imageSrc={require('../../assets/event.jpg')}
             imageContainerStyle={{ borderRadius: 10 }}
             title="Events"
-            // titleNumberOfLines='2'
-            titleStyle={{ marginBottom: 0, fontSize: 12, color: 'black', fontWeight: '600' }}
+            titleStyle={{ marginBottom: 0, fontSize: 16, color: 'black', fontWeight: '600' }}
             featured
-            height={160}
+            height={150}
             width='100%'
-            // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
-            // style={{ alignSelf: 'center' }}
-            onPress={() => navigation.navigate('Event', { clicked: "Events", eventData: eventsList })}
+            onPress={() => navigation.navigate('Event', { title: "Events", eventData: eventsList })}
           />
         </View>
-        <View style={styles.tileCard}>
+        <View style={[styles.tileCard, {marginLeft : 16}]}>
           <Tile
             imageSrc={require('../../assets/tourism.jpg')}
             imageContainerStyle={{ borderRadius: 10 }}
             title="Tourism"
-            // titleNumberOfLines='2'
-            titleStyle={{ marginBottom: 0, fontSize: 12, color: 'black', fontWeight: '600' }}
+            titleStyle={{ marginBottom: 0, fontSize: 16, color: 'black', fontWeight: '600' }}
             featured
-            height={160}
+            height={150}
             width='100%'
-            // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
-            // style={{ alignSelf: 'center' }}
-            onPress={() => navigation.navigate('Tourism', { clicked: "Tourisms", tourismData: tourismList })}
+            onPress={() => navigation.navigate('Tourism', { clicked: "Restaurant", tourismData: tourismList })}
           />
         </View>
-        <View style={styles.tileCard}>
+        <View style={[styles.tileCard, {marginRight : 16}]}>
           <Tile
             imageSrc={require('../../assets/PastelGradientPreview.jpg')}
             imageContainerStyle={{ borderRadius: 10 }}
             title="TBD"
-            // titleNumberOfLines='2'
-            titleStyle={{ marginBottom: 0, fontSize: 12, color: 'black', fontWeight: '600' }}
+            titleStyle={{ marginBottom: 0, fontSize: 16, color: 'black', fontWeight: '600' }}
             featured
-            height={160}
+            height={150}
             width='100%'
-            // caption="Food | Travel | Advertisements | Events"
             captionStyle={{ color: 'black' }}
-            // style={{ alignSelf: 'center' }}
             onPress={() => {}}
+            style={{marginRight: 10}}
 
           />
         </View>
@@ -222,10 +199,11 @@ const styles = StyleSheet.create({
   },
   tileCard: {
     width: 150,
-    marginBottom: 10,
-    // alignItems: 'center',
-    // alignContent: 'center',
-    // justifyContent: 'flex-start',
-    // backgroundColor: 'powderblue',
+    marginBottom: 20,
+  },
+  ImageIconStyle:{
+    height: 300,
+    width: '100%',
+    borderRadius: 10,
   }
 });

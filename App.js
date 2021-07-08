@@ -1,10 +1,9 @@
 import 'react-native-gesture-handler';
 import React, {Component} from 'react';
 import LandingPage from './src/Components/LandingPage.js';
-import RestaurantPage from './src/Components/RestaurantPage';
+import ListPage from './src/Components/ListPage';
 import MenuTest from './src/Components/MenuTest.js';
 import EventsPage from './src/Components/EventsPage.js';
-import TourismPage from './src/Components/TourismPage.js';
 import ArModelPage from './src/Components/ArModel.js'
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -24,13 +23,41 @@ export default class App extends Component {
           component={LandingPage}
           options={{ title: 'Welcome', headerTitleAlign: 'center' }}
         />
-        <Stack.Screen name="Restaurant" component={RestaurantPage} />
-         <Stack.Screen name="menu" component={MenuTest} />
-         <Stack.Screen name="Event" component={EventsPage} />
-         <Stack.Screen name="Tourism" component={TourismPage} />
-         <Stack.Screen name="ArModels" component={ArModelPage} />
-         <Stack.Screen name="testAr" component={TestAr} />
-         <Stack.Screen name="TourismDestination" component={TourismDescPage} />
+        <Stack.Screen 
+          name="Restaurant" 
+          component={ListPage}
+          options={({ route }) => ({ title: route.params.title })} 
+        />
+        <Stack.Screen 
+          name="menu" 
+          component={MenuTest} 
+          options={({ route }) => ({ title: route.params.title })} 
+        />
+        <Stack.Screen 
+          name="Event" 
+          component={EventsPage} 
+          options={({ route }) => ({ title: route.params.title })} 
+        />
+        <Stack.Screen 
+          name="Tourism" 
+          component={ListPage} 
+          options={({ route }) => ({ title: route.params.title })} 
+        />
+        <Stack.Screen 
+          name="ArModels" 
+          component={ArModelPage} 
+          options={({ route }) => ({ title: route.params.title })} 
+        />
+        <Stack.Screen 
+          name="testAr" 
+          component={TestAr} 
+          options={({ route }) => ({ title: route.params.title })} 
+        />
+        <Stack.Screen 
+          name="TourismDestination" 
+          component={TourismDescPage} 
+          options={({ route }) => ({ title: route.params.title })} 
+        />
       </Stack.Navigator>
     </NavigationContainer>
     );

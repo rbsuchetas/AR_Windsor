@@ -4,12 +4,11 @@ ActivityIndicator, Linking  } from "react-native";
 import Separator from "./Separator";
 
 export default function EventsPage({ route, navigation }) {
-  const { clicked, eventData } = route.params;
-  const [nameOfPage, setNameOfPage] = useState(clicked);
+  const { title, eventData } = route.params;
+  const [nameOfPage, setNameOfPage] = useState(title);
   const [eveData, setEveData] = useState(eventData);
 
 
- navigation.setOptions({ title: nameOfPage })
   return (
       <View style={styles.container}>
       <FlatList

@@ -1,27 +1,18 @@
-import { ListItem } from "@material-ui/core";
-import React, { Component, useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
   ScrollView,
-  SectionList,
-  FlatList,
   TouchableOpacity,
   Image,
-  ActivityIndicator,
   Linking,
 } from "react-native";
-import { Tile } from "react-native-elements";
-// import { Card } from "react-native-elements/dist/card/Card";
-import { WebView } from "react-native-webview";
-import { render } from "react-dom";
-import { RepeatRounded } from "@material-ui/icons";
+import { Button } from "react-native-elements/dist/buttons/Button";
+import Separator from "./Separator";
 
 export default function TourismDescPage({ route, navigation }) {
-  const { clicked, desc, img, model, url } = route.params;
-  const [nameOfPage, setNameOfPage] = useState(clicked);
+  const { title, desc, img, model, url } = route.params;
   const [des, setDes] = useState(desc);
   const [image, setImage] = useState(img);
   const [mod, setMod] = useState(model);
@@ -29,11 +20,34 @@ export default function TourismDescPage({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-         <TouchableOpacity onPress={() =>  navigation.navigate("ArModels", {clicked: des, arModel: mod})}>
-         <Image source={{ uri: image }} style={styles.ImageIconStyle} />
-        <Text> {des} </Text>
-        <Text style={styles.bigBlue} onPress={() => Linking.openURL(website)}>Tickets</Text>
-        </TouchableOpacity>
+         {/* <TouchableOpacity onPress={() =>  navigation.navigate("ArModels", {title: title, arModel: mod})}> */}
+         {/* <Image source={{ uri: image }} style={styles.ImageIconStyle} /> */}
+        {/* <Text> {des} </Text> */}
+        {/* <Text style={styles.bigBlue} onPress={() => Linking.openURL(website)}>Tickets</Text> */}
+        {/* </TouchableOpacity> */}
+        <Image source={{ uri: image }} style={styles.ImageIconStyle} />
+        <Separator />
+        <ScrollView style={{flex : 3, paddingHorizontal: 15, marginTop: 10, marginBottom: 15}}>
+          <Text style={styles.contentText}>
+            {des}
+          </Text>
+        </ScrollView>
+        <View style={styles.buttonContainer}>
+          <Button
+            title="View AR Model"
+            type="outline"
+            titleStyle={{fontWeight: '600'}}
+            buttonStyle={[styles.button, {marginLeft: 10, backgroundColor: '#24a0ed', borderRadius: 10}]}
+            // raised
+          />
+          <Button
+            title="Buy Tickets Online"
+            titleStyle={{fontWeight: '600'}}
+            type="outline"
+            buttonStyle={[styles.button, {marginRight: 10, backgroundColor: '#24a0ed', borderRadius: 10}]}
+            raised
+          />
+        </View>
     </View>
   );
 }
@@ -44,56 +58,28 @@ const styles = StyleSheet.create({
     // paddingTop: 22,
     backgroundColor: "#F5FCFF",
   },
-  item: {
-    padding: 50,
-    fontSize: 18,
-    height: 44,
-  },
-  SeparatorLine: {
-    width: '100%',
-    // marginTop: 8,
-    marginBottom: 4,
-  },
   ImageIconStyle: {
-    padding: 20,
-    margin: 0,
-    height: 170,
+    height: 350,
     width: '100%',
-    resizeMode: "stretch",
-    // borderTopRightRadius: 20,
-    // borderBottomRightRadius: 20,
-    // borderBottomLeftRadius: 20,
-    // borderTopLeftRadius: 20,
-
-    //marginTop: 50,
-    // resizeMode: "cover",
-    flexDirection: "row",
+    resizeMode: 'stretch',
   },
-  TextStyle: {
-    //color: "#949494",
-    // fontSize: 16,
-    fontWeight: "700",
-    fontSize: 24,
-    color: "#000",
-    // marginTop: 2,
-    marginBottom: 16,
-    marginLeft: 2,
-    // color: "black",
-    // marginBottom: 10,
-    // marginRight: 0,
-    // alignSelf: "flex-end",
-    // fontSize: 20,
-    // paddingRight: 30,
+  contentText: {
+    color: 'grey',
+    fontSize: 20,
+    marginBottom: 4,
+    flexWrap: 'wrap',
+    flexShrink: 1,
   },
-  priceTextStyle:{
-    fontWeight: "600",
-    fontSize: 18,
-    color: "green",
-    marginTop: 4,
-    marginRight: 4,
+  buttonContainer:{
+    alignSelf: 'flex-end',
+    marginBottom: 35,
+    flexDirection: 'row',
+    // justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    width:'100%',
+    justifyContent: 'space-between',
   },
-bigBlue: {
-    color: 'blue',
-    fontSize: 15,
-  },
+  button: {
+    width: 200
+  }
 });

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   separator: {
     backgroundColor: '#D3D3D3',
     fontWeight: '100',
-    height: 0.5,
-    flex: 1
+    height: 1.5,
+    // flex: 1
   }
 })
