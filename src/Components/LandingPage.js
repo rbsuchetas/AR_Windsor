@@ -120,7 +120,7 @@ export default function LandingPage({ navigation }) {
         />
       </View>
       <View style={styles.bodyCard}>
-        <View style={[styles.tileCard, {marginLeft : 16}]}>
+        <View style={[styles.tileCard, {marginLeft : 8}]}>
           <Tile
             imageSrc={require('../../assets/restaurant.jpg')}
             imageContainerStyle={{ borderRadius: 10 }}
@@ -133,7 +133,7 @@ export default function LandingPage({ navigation }) {
             onPress={() => navigation.navigate('Restaurant', { title: "Restaurants", restData: restList, foodData: foodList })}
           />
         </View>
-        <View style={[styles.tileCard, {marginRight : 16}]}>
+        <View style={[styles.tileCard, {marginRight : 8}]}>
           <Tile
             imageSrc={require('../../assets/event.jpg')}
             imageContainerStyle={{ borderRadius: 10 }}
@@ -146,7 +146,7 @@ export default function LandingPage({ navigation }) {
             onPress={() => navigation.navigate('Event', { title: "Events", eventData: eventsList })}
           />
         </View>
-        <View style={[styles.tileCard, {marginLeft : 16}]}>
+        <View style={[styles.tileCard, {marginLeft : 8}]}>
           <Tile
             imageSrc={require('../../assets/tourism.jpg')}
             imageContainerStyle={{ borderRadius: 10 }}
@@ -159,7 +159,7 @@ export default function LandingPage({ navigation }) {
             onPress={() => navigation.navigate('Tourism', { clicked: "Restaurant", tourismData: tourismList })}
           />
         </View>
-        <View style={[styles.tileCard, {marginRight : 16}]}>
+        <View style={[styles.tileCard, {marginRight : 8}]}>
           <Tile
             imageSrc={require('../../assets/PastelGradientPreview.jpg')}
             imageContainerStyle={{ borderRadius: 10 }}
