@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect} from "react";
-import { Platform, StyleSheet, Text, View, ScrollView, SectionList ,FlatList, TouchableOpacity, Image, 
+import { Platform, StyleSheet,SafeAreaView, Text,TextInput, View, ScrollView, SectionList ,FlatList, TouchableOpacity, Image, 
 ActivityIndicator } from "react-native";
 import Separator from "./Separator";
 
@@ -7,17 +7,61 @@ export default function RestaurantPage({ route, navigation }) {
   const { clicked, restData, foodData } = route.params;
   const [nameOfPage, setNameOfPage] = useState(clicked);
   const [resData, setResData] = useState(restData);
+  const [dupResData, setdupResData] = useState(resData);
+  
+  
   const [fooData, setfooData] = useState(foodData);
 
+  
 
  navigation.setOptions({ title: nameOfPage })
+ const searchRestaurant = (value) => {
+   const filterRestaurant = resData.filter(
+     wholeRestObject =>{
+       let cusineLowercase= wholeRestObject.cuisine?wholeRestObject.cuisine.toLowerCase():""
+       let searchTermCuisine=value.toLowerCase()
+       return cusineLowercase.indexOf(searchTermCuisine)>-1;
+     }
+     
+   )
+   
+   value?setdupResData(filterRestaurant):setdupResData(resData)
+   console.log(filterRestaurant);
+   console.log(resData);
+
+
+ }
   return (
+    
       <View style={styles.container}>
+        <View style={{flex:1}}>
+              <SafeAreaView style={{background:'#2f363c'}}/>
+              <TextInput
+              placeholder="Search here"
+              placeholderTextColor="#dddddd"
+              style={{
+                backgroundColor:'2f363c',
+                height:50,
+                fontSize:36,
+                padding:10,
+                color:'red',
+                borderBottomWidth:0.5,
+                borderBottomColor:'#7d90a0'
+          
+              }}
+              onChangeText={(value)=>searchRestaurant(value)}
+              />
+            </View>
       <FlatList
-        data={resData}
+        data={dupResData}
+        
+        
         keyExtractor={item => item._id}
         renderItem={({ item }) => (
+
           <TouchableOpacity onPress={() => navigation.navigate('menu', { clicked: item.name, restParam: resData ,foodParam: fooData, restParamId: item.uid })}>
+            
+            
             <View style={styles.row}>
               <View style={styles.content}>
                 <View style={styles.header}>
