@@ -149,6 +149,7 @@ ImageIconStyle: {
 contentInfo: {
   alignContent: "flex-end",
   marginLeft: 20,
+  flex : 1,
 },
 textInputStyle: {
   height: 40,
