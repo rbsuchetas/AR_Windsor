@@ -143,7 +143,7 @@ export default function LandingPage({ navigation }) {
             height={150}
             width='100%'
             captionStyle={{ color: 'black' }}
-            onPress={() => navigation.navigate('Event', { title: "Events", eventData: eventsList })}
+            onPress={() => navigation.navigate('Events', { clicked: "Events", eventData: eventsList })}
           />
         </View>
         <View style={[styles.tileCard, {marginLeft : 8}]}>
@@ -156,7 +156,7 @@ export default function LandingPage({ navigation }) {
             height={150}
             width='100%'
             captionStyle={{ color: 'black' }}
-            onPress={() => navigation.navigate('Tourism', { clicked: "Restaurant", tourismData: tourismList })}
+            onPress={() => navigation.navigate('Tourism', { clicked: "Tourism", tourismData: tourismList })}
           />
         </View>
         <View style={[styles.tileCard, {marginRight : 8}]}>

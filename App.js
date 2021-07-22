@@ -34,8 +34,8 @@ export default class App extends Component {
           options={({ route }) => ({ title: route.params.title })} 
         />
         <Stack.Screen 
-          name="Event" 
-          component={EventsPage} 
+          name="Events" 
+          component={ListPage} 
           options={({ route }) => ({ title: route.params.title })} 
         />
         <Stack.Screen 

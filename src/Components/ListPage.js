@@ -3,10 +3,11 @@ import { StyleSheet, Text, View,FlatList, TouchableOpacity, Image, SafeAreaView,
 import Separator from "./Separator";
 
 export default function ListPage({ route, navigation }) {
-  const { restData, foodData, tourismData } = route.params;
+  const { restData, foodData, tourismData, eventData } = route.params;
   const [resData, setResData] = useState(restData);
   const [fooData, setfooData] = useState(foodData);
   const [tourData, setTourData] = useState(tourismData);
+  const [eventsData, seteventsData] = useState(eventData);
   const [filData, setfilData] = useState(resData);
   const [search, setsearch] = useState("");
 
@@ -37,7 +38,7 @@ export default function ListPage({ route, navigation }) {
   return (
       <View style={styles.container}>
         <SafeAreaView style={{ flex: 1 }}>
-          {!tourData &&
+          {!tourData && !eventsData &&
         <TextInput
           style={styles.textInputStyle}
           value={search}
@@ -47,12 +48,12 @@ export default function ListPage({ route, navigation }) {
         />
           }
           <FlatList
-            data={tourismData ? tourData : filData  }
+            data={tourismData ? tourData :eventData ? eventsData: filData   }
             keyExtractor={item => tourData? item.tname : item.name}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={
                 () => {
-                  !tourismData ? 
+                  !tourismData && !eventData ?  
                   navigation.navigate('menu', 
                     { 
                       title: item.name, 
@@ -60,7 +61,7 @@ export default function ListPage({ route, navigation }) {
                       foodParam: fooData, 
                       restParamId: item.uid 
                     })
-                    :
+                    : tourismData ? 
                     navigation.navigate('TourismDestination', 
                     { 
                       title: item.tname,
@@ -69,22 +70,31 @@ export default function ListPage({ route, navigation }) {
                       model: item.tmodel, 
                       url: item.turl 
                     })
-                  }
+                   
+                  :
+                  navigation.navigate('TourismDestination', 
+                    { 
+                      title: item.billName,
+                      desc: item.billDesc, 
+                      img: item.billPic,  
+                      url: item.billUrl 
+                    })
+                  } 
                   }
             >
             <View style={styles.row}>
               <View style={styles.imageHeader}>
                 <Image 
-                  source={{ uri: tourismData ? item.timg : item.imgUrl }} 
+                  source={{ uri: tourismData ? item.timg : eventsData ? item.billPic: item.imgUrl  }} 
                   style={styles.ImageIconStyle} 
                 />
               </View>
                    
               <View style={styles.contentInfo}>
-                <Text style={styles.nameText}>{tourismData ? item.tname : item.name}</Text>
+                <Text style={[styles.nameText, eventData && { fontSize: 16}]}>{tourismData ? item.tname : eventsData ? item.billName: item.name}</Text>
                      
                 <Text style={styles.contentText}>{tourismData ? item.taddr : item.loc}</Text>
-                { !tourismData &&
+                { !tourismData && !eventData &&
                   <Text style={styles.contentText}>{`Cuisine: ${item.cuisine}`}</Text>
                 }
               </View>
@@ -119,7 +129,7 @@ const styles = StyleSheet.create({
   },
   nameText: {
     fontWeight: '800',
-    fontSize: 20,
+    fontSize: 20 ,
     color: '#000',
     flexWrap: 'wrap',
     flexShrink: 1,
