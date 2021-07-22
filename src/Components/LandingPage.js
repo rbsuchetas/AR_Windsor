@@ -4,6 +4,12 @@ import { Tile } from "react-native-elements";
 import { firebase } from '@firebase/app';
 import "firebase/firestore"
 import 'firebase/firestore';
+import {
+  AdMobBanner,
+  setTestDeviceIDAsync
+} from "expo-ads-admob";
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBOWLsoEsHMG6F5U_-FRkO7cpz2ZSTit5Y",
@@ -19,6 +25,11 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
+const Home = () => {
+  React.useEffect(() => {
+     setTestDeviceIDAsync("EMULATOR");
+  }, []);
+}
 
 
 export default function LandingPage({ navigation }) {
@@ -175,6 +186,12 @@ export default function LandingPage({ navigation }) {
           />
         </View>
       </View>
+      <AdMobBanner
+  bannerSize="smartBanner"
+  adUnitID={Platform.OS === "ios" ? "ca-app-pub-3940256099942544/2934735716" : "ca-app-pub-3940256099942544/6300978111"} // Test ID, Replace with your-admob-unit-id
+  servePersonalizedAds // true or false
+  onDidFailToReceiveAdWithError={this.bannerError} />
+
     </View >
 
   );
