@@ -40,28 +40,32 @@ export default function TourismDescPage({ route, navigation }) {
 
       {page === "Tourism" && (
         <View style={styles.buttonContainer}>
+           { model &&
           <Button
             title="View AR Model"
             type="outline"
-            // onPress={() => Linking.openURL(website)}
-            titleStyle={{ fontWeight: "600" }}
-            buttonStyle={[
-              styles.button,
-              { marginLeft: 10, backgroundColor: "#24a0ed", borderRadius: 10 },
-            ]}
-            // raised
+            titleStyle={{fontWeight: '600'}}
+            buttonStyle={[styles.button, {marginLeft: 10, backgroundColor: '#24a0ed', borderRadius: 10}]}
+            disabled={model ? false: true}
+            onPress={() => {
+              navigation.navigate("ArModels", {
+              title: title,
+              arModel: model,
+            })
+          }}
           />
+        }
+        { url &&
           <Button
             title="Buy Tickets Online"
             onPress={() => Linking.openURL(website)}
             titleStyle={{ fontWeight: "600" }}
             type="outline"
-            buttonStyle={[
-              styles.button,
-              { marginRight: 10, backgroundColor: "#24a0ed", borderRadius: 10 },
-            ]}
-            raised
+            buttonStyle={[styles.button, {marginRight: 10, backgroundColor: '#24a0ed', borderRadius: 10}]}
+            disabled={url? false: true}
+            onPress={() => { url && Linking.openURL(url)}}
           />
+        }
         </View>
       )}
 
