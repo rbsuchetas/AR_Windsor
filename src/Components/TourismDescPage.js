@@ -122,6 +122,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   button: {
-    width: 200,
+    width: '72%',
   },
 });
