@@ -26,7 +26,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const Home = () => {
   React.useEffect(() => {
-     setTestDeviceIDAsync("EMULATOR");
+    setTestDeviceIDAsync("EMULATOR");
   }, []);
 }
 
@@ -124,13 +124,13 @@ export default function LandingPage({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.headingCard}>
-        <Image 
-          source={require('../../assets/arwindsorLogo.png')} 
-          style={styles.ImageIconStyle} 
+        <Image
+          source={require('../../assets/arwindsorLogo.png')}
+          style={styles.ImageIconStyle}
         />
       </View>
       <View style={styles.bodyCard}>
-        <View style={[styles.tileCard, {marginLeft : 8}]}>
+        <View style={[styles.tileCard, { marginLeft: 8 }]}>
           <Tile
             imageSrc={require('../../assets/restaurant.jpg')}
             imageContainerStyle={{ borderRadius: 10 }}
@@ -143,7 +143,7 @@ export default function LandingPage({ navigation }) {
             onPress={() => navigation.navigate('Restaurant', { title: "Restaurants", restData: restList, foodData: foodList })}
           />
         </View>
-        <View style={[styles.tileCard, {marginRight : 8}]}>
+        <View style={[styles.tileCard, { marginRight: 8 }]}>
           <Tile
             imageSrc={require('../../assets/event.jpg')}
             imageContainerStyle={{ borderRadius: 10 }}
@@ -156,7 +156,7 @@ export default function LandingPage({ navigation }) {
             onPress={() => navigation.navigate('Events', { clicked: "Events", eventData: eventsList })}
           />
         </View>
-        <View style={[styles.tileCard, {marginLeft : 8}]}>
+        <View style={[styles.tileCard, { marginLeft: 8 }]}>
           <Tile
             imageSrc={require('../../assets/tourism.jpg')}
             imageContainerStyle={{ borderRadius: 10 }}
@@ -169,27 +169,27 @@ export default function LandingPage({ navigation }) {
             onPress={() => navigation.navigate('Tourism', { clicked: "Tourism", tourismData: tourismList })}
           />
         </View>
-        <View style={[styles.tileCard, {marginRight : 8}]}>
+        <View style={[styles.tileCard, { marginRight: 8 }]}>
           <Tile
-            imageSrc={require('../../assets/PastelGradientPreview.jpg')}
+            imageSrc={require('../../assets/formsubmission.jpg')}
             imageContainerStyle={{ borderRadius: 10 }}
-            title="TBD"
+            title="Contact Us"
             titleStyle={{ marginBottom: 0, fontSize: 16, color: 'black', fontWeight: '600' }}
             featured
             height={150}
             width='100%'
             captionStyle={{ color: 'black' }}
-            onPress={() => {}}
-            style={{marginRight: 10}}
+            onPress={() => navigation.navigate('Client Form', { clicked: "FormSubmissionPage" })}
+            style={{ marginRight: 10 }}
 
           />
         </View>
       </View>
       <AdMobBanner
-  bannerSize="smartBanner"
-  adUnitID={Platform.OS === "ios" ? "ca-app-pub-3940256099942544/2934735716" : "ca-app-pub-3940256099942544/6300978111"} // Test ID, Replace with your-admob-unit-id
-  servePersonalizedAds // true or false
-  onDidFailToReceiveAdWithError={this.bannerError} />
+        bannerSize="smartBanner"
+        adUnitID={Platform.OS === "ios" ? "ca-app-pub-3940256099942544/2934735716" : "ca-app-pub-3940256099942544/6300978111"} // Test ID, Replace with your-admob-unit-id
+        servePersonalizedAds // true or false
+        onDidFailToReceiveAdWithError={this.bannerError} />
     </View >
 
   );
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     width: 150,
     marginBottom: 20,
   },
-  ImageIconStyle:{
+  ImageIconStyle: {
     height: 300,
     width: '100%',
     borderRadius: 10,
