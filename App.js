@@ -5,6 +5,7 @@ import ListPage from './src/Components/ListPage';
 import MenuTest from './src/Components/MenuTest.js';
 import EventsPage from './src/Components/EventsPage.js';
 import ArModelPage from './src/Components/ArModel.js'
+import FormSubmissionPage from './src/Components/FormSubmissionPage.js';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
