@@ -9,6 +9,7 @@ import {
   SafeAreaView,
   TextInput,
 } from "react-native";
+import noResults from '../../assets/no-results.jpeg';
 import Separator from "./Separator";
 
 export default function ListPage({ route, navigation }) {
@@ -21,11 +22,6 @@ export default function ListPage({ route, navigation }) {
   const [search, setsearch] = useState("");
 
   const dataFilter = resData;
-  console.log(dataFilter);
-  // const cuisineData = dataFilter.map((item) => {
-  //   return item.cuisine;
-  // });
-  // console.log(cuisineData);
 
   const searchFilter = (text) => {
     if (text) {
@@ -46,7 +42,7 @@ export default function ListPage({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1}}>
         {!tourData && !eventsData && (
           <TextInput
             style={styles.textInputStyle}
@@ -59,6 +55,14 @@ export default function ListPage({ route, navigation }) {
         <FlatList
           data={tourismData ? tourData : eventData ? eventsData : filData}
           keyExtractor={(item) => (tourData ? item.tname : item.name)}
+          ListEmptyComponent={() => {
+            return (
+              <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', height: 500, padding: 30}}>
+                <Image style={{height: '100%', width:'100%'}} source={noResults} />
+                <Text style={{alignSelf: 'center', color: "#949494", fontSize: 22, fontStyle:'italic'}}>{"No resturants with the searched Cuisine, kindly search some other Cuisine."}</Text>
+              </View>
+            );
+          }}
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => {

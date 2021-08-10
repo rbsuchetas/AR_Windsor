@@ -20,10 +20,6 @@ export default function MenuTest({ route, navigation }) {
   const [foData, setFoData] = useState(foodParam);
   const [resId, setResId] = useState(restParamId);
 
-  useEffect(() => {
-    console.log(resId);
-  }, []);
-
   return (
     <View style={styles.container}>
       {(() => {

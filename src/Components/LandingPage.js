@@ -56,7 +56,6 @@ export default function LandingPage({ navigation }) {
           fetchedRestaurants.push(fetchedRestaurant);
         });
         setRestList(fetchedRestaurants);
-        console.log(fetchedRestaurants);
       })
       .catch(error => {
         setError(error);
@@ -75,7 +74,6 @@ export default function LandingPage({ navigation }) {
           fetchedEvents.push(fetchedEvent);
         });
         setEventsList(fetchedEvents);
-        console.log(fetchedEvents);
       })
       .catch(error => {
         setError(error);
@@ -94,7 +92,6 @@ export default function LandingPage({ navigation }) {
           fetchedTourisms.push(fetchedTourism);
         });
         setTourismList(fetchedTourisms);
-        console.log(fetchedTourisms);
       })
       .catch(error => {
         setError(error);
@@ -113,7 +110,6 @@ export default function LandingPage({ navigation }) {
           fetchedfoods.push(fetchedfood);
         });
         setFoodList(fetchedfoods);
-        console.log(fetchedfoods);
       })
       .catch(error => {
         setError(error);
