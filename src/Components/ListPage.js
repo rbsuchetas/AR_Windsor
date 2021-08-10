@@ -52,7 +52,7 @@ export default function ListPage({ route, navigation }) {
             style={styles.textInputStyle}
             value={search}
             underlineColorAndroid="transparent"
-            placeholder="Search Here"
+            placeholder="Search here for cuisine"
             onChangeText={(text) => searchFilter(text)}
           />
         )}
@@ -64,13 +64,13 @@ export default function ListPage({ route, navigation }) {
               onPress={() => {
                 !tourismData && !eventData
                   ? navigation.navigate("menu", {
-                      title: item.name,
-                      restParam: resData,
-                      foodParam: fooData,
-                      restParamId: item.uid,
-                    })
+                    title: item.name,
+                    restParam: resData,
+                    foodParam: fooData,
+                    restParamId: item.uid,
+                  })
                   : tourismData
-                  ? navigation.navigate("TourismDestination", {
+                    ? navigation.navigate("TourismDestination", {
                       title: item.tname,
                       desc: item.tdesc,
                       img: item.timg,
@@ -78,7 +78,7 @@ export default function ListPage({ route, navigation }) {
                       url: item.turl,
                       page: "Tourism",
                     })
-                  : navigation.navigate("TourismDestination", {
+                    : navigation.navigate("TourismDestination", {
                       title: item.billName,
                       desc: item.billDesc,
                       img: item.billPic,
@@ -94,8 +94,8 @@ export default function ListPage({ route, navigation }) {
                       uri: tourismData
                         ? item.timg
                         : eventsData
-                        ? item.billPic
-                        : item.imgUrl,
+                          ? item.billPic
+                          : item.imgUrl,
                     }}
                     style={styles.ImageIconStyle}
                   />
@@ -108,8 +108,8 @@ export default function ListPage({ route, navigation }) {
                     {tourismData
                       ? item.tname
                       : eventsData
-                      ? item.billName
-                      : item.name}
+                        ? item.billName
+                        : item.name}
                   </Text>
 
                   <Text style={styles.contentText}>
