@@ -7,7 +7,7 @@ export default function FormSubmissionPage({ route, navigation }) {
     return (
         <WebView
             source={{
-                uri: 'https://docs.google.com/forms/d/e/1FAIpQLSe3wY1t8N2vzL9yV4-RNh9v8XVxxOvoE_1PGuF0VmK6Yjwt6Q/viewform'
+                uri: 'https://docs.google.com/forms/d/e/1FAIpQLSfpcLEe4qlMSXTMiuQl_H-qTjQlQI4eLaJHnpqT3S_3eG7kcg/viewform'
             }}
             style={{ marginTop: 20 }}
         />
