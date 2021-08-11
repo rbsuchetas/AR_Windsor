@@ -42,7 +42,7 @@ export default function ListPage({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView style={{ flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
         {!tourData && !eventsData && (
           <TextInput
             style={styles.textInputStyle}
@@ -57,9 +57,9 @@ export default function ListPage({ route, navigation }) {
           keyExtractor={(item) => (tourData ? item.tname : item.name)}
           ListEmptyComponent={() => {
             return (
-              <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', height: 500, padding: 30}}>
-                <Image style={{height: '100%', width:'100%'}} source={noResults} />
-                <Text style={{alignSelf: 'center', color: "#949494", fontSize: 22, fontStyle:'italic'}}>{"No resturants with the searched Cuisine, kindly search some other Cuisine."}</Text>
+              <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', height: 500, padding: 30 }}>
+                <Image style={{ height: '100%', width: '100%' }} source={noResults} />
+                <Text style={{ alignSelf: 'center', color: "#949494", fontSize: 15, fontStyle: 'italic' }}>{"No resturants with the searched Cuisine, kindly search some other Cuisine."}</Text>
               </View>
             );
           }}
