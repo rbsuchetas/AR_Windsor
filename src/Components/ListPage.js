@@ -42,7 +42,7 @@ export default function ListPage({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView style={{ flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
         {!tourData && !eventsData && (
           <TextInput
             style={styles.textInputStyle}
