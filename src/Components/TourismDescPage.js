@@ -80,12 +80,10 @@ export default function TourismDescPage({ route, navigation }) {
               buttonStyle={[
                 styles.button,
                 {
-                  // marginRight: 10,
                   backgroundColor: "#24a0ed",
                   borderRadius: 10,
                 },
               ]}
-              raised
             />
           </TouchableOpacity>
         </View>

@@ -58,7 +58,7 @@ export default function ListPage({ route, navigation }) {
           ListEmptyComponent={() => {
             return (
               <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', height: 500, padding: 30}}>
-                <Image style={{height: '100%', width:'100%'}} source={noResults} />
+                <Image style={{height: '90%', width:'90%'}} source={noResults} />
                 <Text style={{alignSelf: 'center', color: "#949494", fontSize: 22, fontStyle:'italic'}}>{"No resturants with the searched Cuisine, kindly search some other Cuisine."}</Text>
               </View>
             );
